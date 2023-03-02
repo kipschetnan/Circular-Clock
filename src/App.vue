@@ -1,14 +1,25 @@
 <template>
   <div class="clock">
     <div class="hour-hand" :style="hourStyle"></div>
-    <div class="minute-hand"></div>
+    <div class="minute-hand" :style="minuteStyle"></div>
     <div class="second-hand" :style="secondStyle"></div>
     <div class="face"></div>
+    <span id="twelve">12</span>
+    <span id="one">1</span>
+    <span id="two"> 2</span>
+    <span id="three">3</span>
+    <span id="four">4</span>
+    <span id="five">5</span>
+    <span id="six">6</span>
+    <span id="seven">7</span>
+    <span id="eight">8</span>
+    <span id="nine">9</span>
+    <span id="ten">10</span>
+    <span id="eleven">11</span>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
 
   export default {
     data () {
@@ -24,81 +35,35 @@ import { ref } from 'vue'
     },
     computed: {
       hourDeg: function() {
-        return this.time.getHours() * 30 /2
+        return this.time.getHours() * 30 + (this.time.getMinutes() / 2)
       },
-      secondDegree: function() {
+      secondDeg: function() {
         return this.time.getSeconds() * 6;
+      },
+      minuteDeg: function() {
+        return this.time.getMinutes() * 6
       },
     
       hourStyle() {
+        console.log('This is hour: ', this.hourDeg)
         return {
           transform: `rotate(${this.hourDeg}deg)`
         }
       },
 
       secondStyle() {
-        console.log(this.secondDegree)
+        console.log('This is seconds: ', this.secondDeg)
         return {
-          transform: `rotate(${this.secondDegree}deg)`
+          transform: `rotate(${this.secondDeg}deg)`
+        }
+      },
+
+      minuteStyle() {
+        return {
+          transform: `rotate(${this.minuteDeg}deg)`
         }
       }
-      // hourStyle() {
-      //   console.log(this.hourDeg)
-      //   switch(this.hourDeg) {
-      //     case 12: 
-      //       return {
-      //         transform: 'rotate(-90deg)'
-      //       }
-      //     case 1: 
-      //       return {
-      //         transform: 'rotate(-60deg)',
-      //       }
-      //     case 2: 
-      //       return {
-      //         transform: 'rotate(-30deg)',
-      //       }
-      //     case 3: 
-      //       return {
-      //         transform: 'rotate(0deg)',
-      //       }
-      //     case 4: 
-      //       return {
-      //         transform: 'rotate(30deg)',
-      //       }
-      //     case 5: 
-      //       return {
-      //        transform: 'rotate(60deg)',
-      //       }
-      //     case 6: 
-      //       return {
-      //         transform: 'rotate(90deg)',
-      //       }
-      //     case 7: 
-      //       return {
-      //         transform: 'rotate(120deg)',
-      //       }
-      //     case 8: 
-      //       return {
-      //         transform: 'rotate(150deg)',
-      //       }
-      //     case 9: 
-      //       return {
-      //         transform: 'rotate(180deg)',
-      //       }
-      //     case 10: 
-      //       return {
-      //         transform: 'rotate(210deg)',
-      //       }
-      //     case 11: 
-      //       return {
-      //         transform: 'rotate(240deg)',
-      //       }
-      //   }
-      // }
     }
-    
-
-    
   }
   
 </script>

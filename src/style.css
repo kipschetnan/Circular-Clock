@@ -1,0 +1,75 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #979797;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 5px solid black;
+  position: relative;
+  margin-top: 8%;
+  left: 34%;
+}
+
+.face {
+  position: absolute;
+  top: 50%;
+  left: 253px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  margin-left: -5px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.hour-hand {
+  position: absolute;
+  top: 22%;
+  left: 47%;
+  width: 5px;
+  height: 150px;
+  margin-top: -2.5px;
+  margin-left: -25px;
+  background-color: black;
+  transform-origin: left center;
+  transition: 'transform 1s ease'
+}
+
+.minute-hand {
+  position: absolute;
+  top: 50%;
+  left: 59%;
+  width: 170px;
+  height: 3px;
+  margin-top: -1.5px;
+  margin-left: -37.5px;
+  background-color: black;
+  transform-origin: left center;
+}
+
+.second-hand {
+  position: absolute;
+  top: 12%;
+  left: 60%;
+  width: 1px;
+  height: 380px;
+  margin-top: -0.5px;
+  margin-left: -50px;
+  background-color: red;
+  transform-origin: left;
+  transform: scaleX(0);
+}
